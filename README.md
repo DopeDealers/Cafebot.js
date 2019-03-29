@@ -29,7 +29,7 @@ const  CafeC  =  require('cafebot.js');
 const  cafe  =  new  CafeC.Client('token here');
 ```
 
-##Get a user profile
+## Get a user profile
 
 ```js
 const CafeC = require('cafebot.js');
