@@ -20,7 +20,7 @@ module.exports = class Reddit extends EventEmitter {
             beautyConsole: null
         } & options);
         Object.freeze(this.options);
-        if (!this.token) return console.log(`${chalk.default.black("[")}${chalk.default.greenBright("CafeBot")}${chalk.default.black("]")} ${chalk.default.bgBlueBright("No token found!")}`);
+        if (!this.token) throw new Error(`${chalk.default.black("[")}${chalk.default.greenBright("CafeBot")}${chalk.default.black("]")} ${chalk.default.blueBright("No token found!")}`);
     };
     async profile(userid) {
         if (!userid) return console.log("ERROR");
