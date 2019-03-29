@@ -6,7 +6,13 @@
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 
+## About
 
+This is a wrapper for the api of the bot named Cafe, visit or invite it [here](https://cafebot.xyz)
+this project will be maintained per every endpoint or bug found. please create an issue
+for us to track or fix.
+
+join official cafebot discord [here](https://discordapp.com/invite/CfCQKGK)
 
 ## Installation
 
@@ -59,4 +65,11 @@ profile.then(user => {
     console.log(user);
 });
 ```
+
+## Known Bugs
+
+| Client    |                                                             |
+|-----------|-------------------------------------------------------------|
+|token      | returns json but returns undefined instead of stopping code |
+|options    | returns null and logging isnt setup                         |
 
