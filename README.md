@@ -18,9 +18,9 @@ The Client for connecting to the API:
 
 |Client          |Options                        |                        
 |----------------|-------------------------------|
-|token           |`'cafebot_token'`              |
-|log             |`true || false`                |
-|beautyConsole   |`true || false || null`        |
+|token           |``'cafebot_token'``            |
+|log             |``true || false``              |
+|beautyConsole   |``true || false || null``      |
 
 **Setup**
 ```js
