@@ -1,0 +1,24 @@
+{
+    "name": "cafebot.js",
+    "author": "Phil#0004",
+    "contributers": ["DopeDealers", "auguwu"],
+    "main": "src/index.js",
+    "types": "typings/index.d.ts",
+    "version": "1.0.0",
+    "dependencies": {
+        "chalk": "^2.4.2",
+        "events": "^3.0.0",
+        "node-fetch": "^2.3.0",
+        "request": "^2.88.0",
+        "snekfetch": "^4.0.4",
+        "wumpfetch": "^0.1.3"
+    },
+    "devDependencies": {
+        "eslint": "^4.11.0",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1"
+    },
+    "scripts": {
+        "start": "node app.js"
+    }
+}
