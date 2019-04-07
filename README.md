@@ -2,14 +2,8 @@
   
 CAFEBOT.JS OFFICIAL WRAPPER
 
-
-
-
-
-
-
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/DopeDealers/Cafebot.js/graphs/commit-activity) 
- [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 
@@ -19,15 +13,15 @@ This is a wrapper for the api of the bot named Cafe, visit or invite it [here](h
 this project will be maintained per every endpoint or bug found. please create an issue
 for us to track or fix.
 
-join official cafebot discord [here](https://discordapp.com/invite/CfCQKGK)
+Join official Cafe Discord [here](https://discordapp.com/invite/CfCQKGK)
 
 ## Installation
 
 **NPM**
 ``npm i cafebot``
 
-**YARN**
-``soon pls dont hurt me``
+**Yarn**
+``yarn add cafebot``
 
 
 ## Client

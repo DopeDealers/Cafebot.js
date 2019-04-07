@@ -1,6 +1,6 @@
 const EventEmitter = require('events').EventEmitter;
 const w = require('wumpfetch');
-const chalk = require('chalk');
+const leeks = require('leeks.js');
 /**
  * @extends EventEmitter Represents a UwU
  * @prop {String} token The token of the client
@@ -20,7 +20,7 @@ module.exports = class Reddit extends EventEmitter {
             beautyConsole: null
         } & options);
         Object.freeze(this.options);
-        if (!this.token) throw new Error(`${chalk.default.black("[")}${chalk.default.greenBright("CafeBot")}${chalk.default.black("]")} ${chalk.default.blueBright("No token found!")}`);
+        if (!this.token) throw new Error(`${leeks.colors.blackBright("[")}${leeks.colors.greenBright("CafeBot")}${leeks.colors.blackBright("]")} ${leeks.colors.blueBright("No token found!")}`);
     };
     async profile(userid) {
         if (!userid) return console.log("ERROR");
