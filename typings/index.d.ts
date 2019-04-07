@@ -20,8 +20,7 @@ declare module 'cafebot.js' {
     private prices(userid: string, amount: int): Promise<object>;
     private purchased(userid: string): Promise<object>;
     private garden(userid: string, amount: int): Promise<object>;
-
-    
   };
+  
   export const version: string;
 }
