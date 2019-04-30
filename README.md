@@ -50,22 +50,37 @@ const cafe = new CafeC.Client('token here').profile('discorduserid');
 
 cafe.then(user => {
     console.log(user);
+//Will output all profile data
 });
 ```
 
-**or**
+## Check if a user has voted
 
 ```js
 const CafeC = require('cafebot.js');
 
-const cafe = new CafeC.Client('token here');
+const cafe = new CafeC.Client('token here').voted('discorduserid');
 
-const profile = cafe.profile('discorduserid');
-
-profile.then(user => {
+cafe.then(user => {
     console.log(user);
+//Will output a boolean, vote time, or an error.
 });
 ```
+
+## Check if a user is active
+
+```js
+const CafeC = require('cafebot.js');
+
+const cafe = new CafeC.Client('token here').active('discorduserid');
+
+cafe.then(user => {
+    console.log(user);
+//Will output a boolean stating activity, and last interaction time in Ms
+});
+```
+
+#There's more methods, but all of them follow the same style, and are appropriately not listed - for length purposes.
 
 ## Known Bugs
 
