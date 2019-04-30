@@ -80,7 +80,7 @@ cafe.then(user => {
 });
 ```
 
-#There's more methods, but all of them follow the same style, and are appropriately not listed - for length purposes.
+# There's more methods, but all of them follow the same style, and are appropriately not listed - for length purposes.
 
 ## Known Bugs
 
