@@ -6,7 +6,7 @@ const leeks = require('leeks.js');
  * @prop {String} token The token of the client
  * @prop {Object} [options] Options for the apiClient
  * */
-module.exports = class Reddit extends EventEmitter {
+module.exports = class Cafe extends EventEmitter {
     /**
      * 
      * @arg {String} token 
@@ -21,6 +21,8 @@ module.exports = class Reddit extends EventEmitter {
         } & options);
         Object.freeze(this.options);
         if (!this.token) throw new Error(`${leeks.colors.blackBright("[")}${leeks.colors.greenBright("CafeBot")}${leeks.colors.blackBright("]")} ${leeks.colors.blueBright("No token found!")}`);
+        //if (this.options.log != true) console.log("owo it worked'ndt");
+        //if (this.options.beautyConsole != true) console.log(`${leeks.colors.greenBright("owo it worked'ndt")}`);
     };
     async profile(userid) {
         if (!userid) return console.log("ERROR");
@@ -29,26 +31,32 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/profile/${userid}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
-        return {
-            username: r.json().username,
-            discriminator: r.json().discriminator,
-            supporterlvl: r.json().supporterlvl,
-            lastvotems: r.json().lastvotems,
-            rebirths: r.json().rebirths,
-            cps: r.json().cps,
-            cpm: r.json().cpm,
-            userid: r.json().userid,
-            cash: r.json().cash,
-            collectivecash: r.json().collectivecash,
-            tokens: r.json().tokens,
-            gems: r.json().gems,
-            purchases: r.json().purchases,
-            upgrades: r.json().upgrades,
-            description: r.json().description,
-            error: r.json().error
+        if (!r.json().error) {
+            return {
+                username: r.json().username,
+                discriminator: r.json().discriminator,
+                supporterlvl: r.json().supporterlvl,
+                lastvotems: r.json().lastvotems,
+                rebirths: r.json().rebirths,
+                cps: r.json().cps,
+                cpm: r.json().cpm,
+                userid: r.json().userid,
+                cash: r.json().cash,
+                collectivecash: r.json().collectivecash,
+                tokens: r.json().tokens,
+                gems: r.json().gems,
+                purchases: r.json().purchases,
+                upgrades: r.json().upgrades,
+                description: r.json().description,
+            }
+        } else {
+            return {
+                error: r.json().error
+            }
         }
     };
     async voted(userid) {
@@ -57,13 +65,20 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/voted/${userid}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
-        return {
-            voted: r.json().voted,
-            voteMs: r.json().voteMs,
-            error: r.json().error
+        if (!r.json().error) {
+            return {
+                voted: r.json().voted,
+                voteMs: r.json().voteMs
+            }
+        }
+        else {
+            return {
+                error: r.json().error
+            }
         }
     };
     async active(userid) {
@@ -72,13 +87,19 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/active/${userid}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
-        return {
-            lastMs: r.json().lastMs,
-            active: r.json().active,
-            error: r.json().error
+        if (!r.json().error) {
+            return {
+                lastMs: r.json().lastMs,
+                active: r.json().active
+            }
+        } else {
+            return {
+                error: r.json().error
+            }
         }
     };
     async team(userid) {
@@ -87,21 +108,27 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/team/${userid}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
-        return {
-            id: r.json().id,
-            name: r.json().name,
-            motd: r.json().motd,
-            ownerId: r.json().motd,
-            ownerName: r.json().ownerName,
-            slotsFilled: r.json().slotsFilled,
-            slotsMax: r.json().slotsMax,
-            level: r.json().level,
-            status: r.json().status,
-            publicinvite: r.json().publicinvite,
-            error: r.json().error
+        if (!r.json().error) {
+            return {
+                id: r.json().id,
+                name: r.json().name,
+                motd: r.json().motd,
+                ownerId: r.json().motd,
+                ownerName: r.json().ownerName,
+                slotsFilled: r.json().slotsFilled,
+                slotsMax: r.json().slotsMax,
+                level: r.json().level,
+                status: r.json().status,
+                publicinvite: r.json().publicinvite
+            }
+        } else {
+            return {
+                error: r.json().error
+            }
         }
     };
     async prices(userid, amount) {
@@ -111,60 +138,67 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/prices/${userid}/${amount}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
-        return {
-            Brewer: r.json().Brewer,
-            Grinder: r.json().Grinder,
-            Shelving: r.json().Shelving,
-            Wifi: r.json().Wifi,
-            IceMachine: r.json().IceMachine,
-            Blender: r.json().Blender,
-            Table: r.json().Table,
-            Dishwasher: r.json().Dishwasher,
-            Seat: r.json().Seat,
-            Espresso: r.json().Espresso,
-            Boiler: r.json().Boiler,
-            Wastebin: r.json().Wastebin,
-            Refrigerator: r.json().Refrigerator,
-            Infuser: r.json().Infuser,
-            Sofa: r.json().Sofa,
-            Dispenser: r.json().Dispenser,
-            Creamer: r.json().Creamer,
-            Press: r.json().Press,
-            Pitcher: r.json().Pitcher,
-            Urn: r.json().Urn,
-            Airpot: r.json().Airpot,
-            Sleeveholder: r.json().SleeveHolder,
-            Warmers: r.json().Warmers,
-            Spigot: r.json().Spigot,
-            Juicer: r.json().Juicer,
-            Teapot: r.json().Teapot,
-            Pump: r.json().Pump,
-            Delivery: r.json().Delivery,
-            Grill: r.json().Grill,
-            KnockBox: r.json().KnockBox,
-            Toaster: r.json().Toaster,
-            Oven: r.json().Oven,
-            Microwave: r.json().Microwave,
-            Farm: r.json().Farm,
-            Transport: r.json().Transport,
-            Solar: r.json().Solar,
-            Radio: r.json().Radio,
-            Messenger: r.json().Messenger,
-            Mailbox: r.json().Mailbox,
-            Folders: r.json().Folders,
-            Catering: r.json().Catering,
-            Optimist: r.json().Optimist,
-            Shipment: r.json().Shipment,
-            Swirl: r.json().Swirl,
-            Monopoly: r.json().Monopoly,
-            Hired: r.json().Hired,
-            Lovely: r.json().Lovely,
-            Decaffeinated: r.json().Decaffeinated,
-            Caffeinated: r.json().Caffeinated,
-            error: r.json().error
+        if (!r.json().error) {
+            return {
+                Brewer: r.json().Brewer,
+                Grinder: r.json().Grinder,
+                Shelving: r.json().Shelving,
+                Wifi: r.json().Wifi,
+                IceMachine: r.json().IceMachine,
+                Blender: r.json().Blender,
+                Table: r.json().Table,
+                Dishwasher: r.json().Dishwasher,
+                Seat: r.json().Seat,
+                Espresso: r.json().Espresso,
+                Boiler: r.json().Boiler,
+                Wastebin: r.json().Wastebin,
+                Refrigerator: r.json().Refrigerator,
+                Infuser: r.json().Infuser,
+                Sofa: r.json().Sofa,
+                Dispenser: r.json().Dispenser,
+                Creamer: r.json().Creamer,
+                Press: r.json().Press,
+                Pitcher: r.json().Pitcher,
+                Urn: r.json().Urn,
+                Airpot: r.json().Airpot,
+                Sleeveholder: r.json().SleeveHolder,
+                Warmers: r.json().Warmers,
+                Spigot: r.json().Spigot,
+                Juicer: r.json().Juicer,
+                Teapot: r.json().Teapot,
+                Pump: r.json().Pump,
+                Delivery: r.json().Delivery,
+                Grill: r.json().Grill,
+                KnockBox: r.json().KnockBox,
+                Toaster: r.json().Toaster,
+                Oven: r.json().Oven,
+                Microwave: r.json().Microwave,
+                Farm: r.json().Farm,
+                Transport: r.json().Transport,
+                Solar: r.json().Solar,
+                Radio: r.json().Radio,
+                Messenger: r.json().Messenger,
+                Mailbox: r.json().Mailbox,
+                Folders: r.json().Folders,
+                Catering: r.json().Catering,
+                Optimist: r.json().Optimist,
+                Shipment: r.json().Shipment,
+                Swirl: r.json().Swirl,
+                Monopoly: r.json().Monopoly,
+                Hired: r.json().Hired,
+                Lovely: r.json().Lovely,
+                Decaffeinated: r.json().Decaffeinated,
+                Caffeinated: r.json().Caffeinated,
+                error: r.json().error
+            }
+        } else {
+            return {
+                error: r.json().error
+            }
         }
     };
     async purchased(userid) {
@@ -173,6 +207,7 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/purchased/${userid}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
@@ -347,6 +382,7 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/garden/${userid}/${amount}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper/1.0.8',
                 'Authorization': this.token
             }
         }).send();
@@ -392,6 +428,7 @@ module.exports = class Reddit extends EventEmitter {
             url: `https://cafebot.xyz/api/purchased/${userid}`,
             method: 'GET',
             headers: {
+                'User-Agent': 'CafeApiWrapper-TESTING/1.0.8',
                 'Authorization': this.token
             }
         }).send();
