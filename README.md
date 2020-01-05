@@ -18,10 +18,10 @@ Join official Cafe Discord [here](https://discordapp.com/invite/CfCQKGK)
 ## Installation
 
 **NPM**
-``npm i cafebot``
+``npm i cafebot.js``
 
 **Yarn**
-``yarn add cafebot``
+``yarn add cafebot.js``
 
 
 ## Client
@@ -31,22 +31,24 @@ The Client for connecting to the API:
 |Client          |Options                        |                        
 |----------------|-------------------------------|
 |token           |``'cafebot_token'``            |
-|log             |``true or false``              |
-|beautyConsole   |``true or false or null``      |
+|enabled         |``true or false``              |
+|expires         |``in MS``                      |
+|disableLogs     | ``true or false``             |
 
-**Setup**
+**JS Setup**
 ```js
-const  CafeC  =  require('cafebot.js');
+const { Client } = require('cafebot.js');
 
-const  cafe  =  new  CafeC.Client('token here');
+const c = new Client('token here');
 ```
 
 ## Get a user profile
 
 ```js
-const CafeC = require('cafebot.js');
+// ES6 promises
+const { Client } = require('cafebot.js');
 
-const cafe = new CafeC.Client('token here').profile('discorduserid');
+const cafe = new Client('token here').profile('discorduserid');
 
 cafe.then(user => {
     console.log(user);
@@ -57,6 +59,7 @@ cafe.then(user => {
 ## Check if a user has voted
 
 ```js
+
 const CafeC = require('cafebot.js');
 
 const cafe = new CafeC.Client('token here').voted('discorduserid');
@@ -67,19 +70,6 @@ cafe.then(user => {
 });
 ```
 
-## Check if a user is active
-
-```js
-const CafeC = require('cafebot.js');
-
-const cafe = new CafeC.Client('token here').active('discorduserid');
-
-cafe.then(user => {
-    console.log(user);
-//Will output a boolean stating activity, and last interaction time in Ms
-});
-```
-
 # There's more methods, but all of them follow the same style, and are appropriately not listed - for length purposes.
 
 ## Known Bugs
@@ -87,4 +77,3 @@ cafe.then(user => {
 | Client    |                                                             |
 |-----------|-------------------------------------------------------------|
 |options    | returns null and logging isnt setup                         |
-

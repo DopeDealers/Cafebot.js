@@ -1,23 +1,23 @@
 {
     "name": "cafebot.js",
     "author": "Phil#0004",
-    "contributers": [
+    "description": "Cafebot.xyz wrapper",
+    "contributors": [
         "DopeDealers",
-        "auguwu"
+        "TheOnlyKirb"
     ],
     "main": "src/index.js",
-    "types": "typings/index.d.ts",
-    "version": "1.0.0",
+    "version": "2.0.1-beta",
     "dependencies": {
-        "leeks.js": "^0.0.1",
-        "wumpfetch": "^0.2.1"
+        "EventEmitter": "^1.0.0",
+        "chalk": "^2.4.2",
+        "moment": "^2.24.0",
+        "wumpfetch": "^0.1.3"
     },
-    "devDependencies": {
-        "eslint": "^5.16.0",
-        "tslint": "^5.15.0",
-        "typescript": "^3.4.2"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DopeDealers/Cafebot.js"
     },
-    "scripts": {
-        "start": "node app.js"
-    }
+    "license": "MIT",
+    "homepage": "https://cafebot.xyz"
 }

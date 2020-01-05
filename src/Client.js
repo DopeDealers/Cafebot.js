@@ -1,19 +1,19 @@
 const EventEmitter = require('events').EventEmitter;
 const w = require('wumpfetch');
-const leeks = require('leeks.js');
+//const leeks = require('leeks.js');
 /**
  * @extends EventEmitter Represents a UwU
  * @prop {String} token The token of the client
  * @prop {Object} [options] Options for the apiClient
  * */
-module.exports = class Cafe extends EventEmitter {
+class Cafe {
     /**
      * 
      * @arg {String} token 
      * @arg {Object} options 
      */
     constructor(token, options) {
-        super();
+        //super();
         this.token = token;
         this.options = Object.assign({
             log: false,
@@ -436,3 +436,4 @@ module.exports = class Cafe extends EventEmitter {
         
     };
 };
+module.exports = Cafe;
