@@ -9,15 +9,14 @@
     "main": "src/index.js",
     "version": "2.0.1-beta",
     "dependencies": {
-        "EventEmitter": "^1.0.0",
         "chalk": "^2.4.2",
         "moment": "^2.24.0",
         "wumpfetch": "^0.1.3"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/DopeDealers/Cafebot.js"
+        "url": "git+https://github.com/DopeDealers/Cafebot.js"
     },
     "license": "MIT",
-    "homepage": "https://cafebot.xyz"
+    "homepage": "https://cafe.ajnicoloff.me/"
 }
