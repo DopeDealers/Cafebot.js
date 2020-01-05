@@ -45,7 +45,7 @@ const c = new Client('token here');
 ## Get a user profile
 
 ```js
-// ES6 promises
+// ES6 promise
 const { Client } = require('cafebot.js');
 
 const cafe = new Client('token here').profile('discorduserid');
@@ -59,15 +59,14 @@ cafe.then(user => {
 ## Check if a user has voted
 
 ```js
+// Asynchronous promise
+const {Client} = require('cafebot.js');
+const cafe = new Client('token here')
 
-const CafeC = require('cafebot.js');
+const Hello = await cafe.vote("discorduserid");
 
-const cafe = new CafeC.Client('token here').voted('discorduserid');
-
-cafe.then(user => {
-    console.log(user);
+console.log(Hello);
 //Will output a boolean, vote time, or an error.
-});
 ```
 
 # There's more methods, but all of them follow the same style, and are appropriately not listed - for length purposes.
@@ -76,4 +75,4 @@ cafe.then(user => {
 
 | Client    |                                                             |
 |-----------|-------------------------------------------------------------|
-|options    | returns null and logging isnt setup                         |
+|None!      |                                                             |

@@ -1,23 +1,17 @@
 'use strict';
 const { version, name } = require('../package.json');
 const w = require('wumpfetch');
-const Util = require("./utils/Util");
-const http = require("http");
 const _n = require('./utils/Logging'), logging = new _n();
 const { cdns } = require("./utils/Links");
-const { EventEmitter } = require('events');
 
-class Cafe extends EventEmitter {
+
+class Cafe {
     /**Cafe api key for future usage.
-     * @extends EventEmitter Extending the usage of events for team leaving/joining etc.
      * @param {string} key API key for cafebot.xyz/api
      * @param {Object} [options={}] Optional options for caching and warnings
      * @param {boolean} [options.disableLogs=false] Whether to suppress logging
-     * @param {number} [port] port to post events to, not needed if you dont wana use the server feature.
-     * @param {string} [path=/] The path to accept requests on
      */
     constructor(key, { port, path = '/', disableLogs = false, disableLE = false, base = cdns.baseLink } = {}) {
-        super();
         this._key = key;
         this.baseLink = base;
         this.headers = {
@@ -98,7 +92,5 @@ class Cafe extends EventEmitter {
         return r.json();
     }
 };
-
-
 
 module.exports = Cafe;
