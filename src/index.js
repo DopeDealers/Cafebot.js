@@ -1,4 +1,7 @@
 module.exports = {
-    Client: require("./Client"),
-    version: require("../package.json")
+    Client: require("./v2Client"),
+    DevClient: require("./DevClient"),
+    EeEeeEe: require("./eeeeeeeeee"),
+    version: require("../package.json"),
+    contributors: require("../package.json")
 };

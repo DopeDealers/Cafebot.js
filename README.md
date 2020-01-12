@@ -9,11 +9,11 @@ CAFEBOT.JS OFFICIAL WRAPPER
 
 ## About
 
-This is a wrapper for the api of the bot named Cafe, visit or invite it [here](https://cafebot.xyz)
+This is a wrapper for the api of the bot named Cafe, visit or invite it [here](https://cafe.ajnicoloff.me/)
 this project will be maintained per every endpoint or bug found. please create an issue
 for us to track or fix.
 
-Join official Cafe Discord [here](https://discordapp.com/invite/CfCQKGK)
+Join official Cafe Discord [here](https://discordapp.com/invite/DxP2He9)
 
 ## Installation
 
@@ -31,8 +31,6 @@ The Client for connecting to the API:
 |Client          |Options                        |                        
 |----------------|-------------------------------|
 |token           |``'cafebot_token'``            |
-|enabled         |``true or false``              |
-|expires         |``in MS``                      |
 |disableLogs     | ``true or false``             |
 
 **JS Setup**
@@ -61,7 +59,8 @@ cafe.then(user => {
 ```js
 // Asynchronous promise
 const {Client} = require('cafebot.js');
-const cafe = new Client('token here')
+// also removes logging
+const cafe = new Client('token here', {disableLogs: true});
 
 const Hello = await cafe.vote("discorduserid");
 

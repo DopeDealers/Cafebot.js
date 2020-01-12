@@ -1,13 +1,13 @@
 {
     "name": "cafebot.js",
     "author": "Phil#0004",
-    "description": "Cafebot.xyz wrapper",
+    "description": "cafe.ajnicoloff.me api wrapper",
     "contributors": [
         "DopeDealers",
         "TheOnlyKirb"
     ],
     "main": "src/index.js",
-    "version": "2.0.1-beta-4",
+    "version": "2.0.2-beta",
     "dependencies": {
         "chalk": "^2.4.2",
         "moment": "^2.24.0",
@@ -15,7 +15,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/DopeDealers/Cafebot.js"
+        "url": "https://github.com/DopeDealers/Cafebot.js"
     },
     "license": "MIT",
     "homepage": "https://cafe.ajnicoloff.me/"
