@@ -30,6 +30,17 @@ class Cafe {
         }).send();
         return r.json();
     }
+    async dev(path, method) {
+        if (!this._key) return;
+        if (!method || !path) return logging.yes(`No path or method`, {disableLogs: this.options.disableLogs, type: 'warn'});
+        const r = await w({
+            url: `${this.baseLink}${path}`,
+            method: method.toUpperCase(),
+            headers: this.headers,
+            
+        }).send();
+        return r.json() && console.log("this essentially does nothing for you lol sorry to break ur heart");
+    }
     async voted(userid) {
         if (!this._key) return;
         if (!userid) return logging.yes(`No userID`, {disableLogs: this.options.disableLogs, type: 'warn'});
@@ -85,6 +96,26 @@ class Cafe {
         if (!amount || !userid) return logging.yes(`No userID`, {disableLogs: this.options.disableLogs, type: 'warn'});
         const r = await w({
             url: `${this.baseLink}cp/${userid}`,
+            method: 'GET',
+            headers: this.headers
+        }).send();
+        return r.json();
+    }
+    async crates(userid) {
+        if (!this._key) return;
+        if (!userid) return logging.yes(`No userID`, {disableLogs: this.options.disableLogs, type: 'warn'});
+        const r = await w({
+            url: `${this.baseLink}crates/${userid}`,
+            method: 'GET',
+            headers: this.headers
+        }).send();
+        return r.json();
+    }
+    async cpsfury(userid) {
+        if (!this._key) return;
+        if (!userid) return logging.yes(`No userID`, {disableLogs: this.options.disableLogs, type: 'warn'});
+        const r = await w({
+            url: `${this.baseLink}cpsfury/${userid}`,
             method: 'GET',
             headers: this.headers
         }).send();

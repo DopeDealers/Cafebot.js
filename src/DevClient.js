@@ -4,10 +4,9 @@ const w = require('wumpfetch');
 const _n = require('./utils/Logging'), logging = new _n();
 const { cdns } = require("./utils/Links");
 
-
 class Cafe {
     /**Cafe api key for future usage.
-     * @param {string} key API key for cafebot.xyz/api
+     * @param {string} key API key for https://cafeapi.ajnicoloff.me/api
      * @param {Object} [options={}] Optional options for caching and warnings
      * @param {boolean} [options.disableLogs=false] Whether to suppress logging
      */
@@ -25,11 +24,21 @@ class Cafe {
         if (!this._key) return;
         if (!userid) return logging.yes(`No userID`, {disableLogs: this.options.disableLogs, type: 'warn'});
         const r = await w({
-            url: `${this.baseLink}profile/${userid}`,
+            url: `${this.baseLink}cpsfury/${userid}`,
             method: 'GET',
             headers: this.headers
         }).send();
         return r.json();
+    }
+    async DEV(path, method) {
+        if (!this._key) return;
+        
+        const r = await w({
+            url: `${this.baseLink}${path}`,
+            method: method.toUpperCase(),
+            headers: this.headers
+        }).send();
+        return logging.yes(r.json(), {disableLogs: this.options.disableLogs, type: 'warn'});
     }
     async voted(userid) {
         if (!this._key) return;
@@ -73,7 +82,7 @@ class Cafe {
     }
     async prices(userid, amount) {
         if (!this._key) return;
-        if (!amount || !userid) return logging.yes(`No userID`, {disableLogs: this.options.disableLogs, type: 'warn'});
+        if (!amount || !userid) return logging.yes(`No userID/amount`, {disableLogs: this.options.disableLogs, type: 'warn'});
         const r = await w({
             url: `${this.baseLink}prices/${userid}/${amount}`,
             method: 'GET',
@@ -91,6 +100,11 @@ class Cafe {
         }).send();
         return r.json();
     }
+    
 };
+process.on('unhandledRejection', (err) => {
+    process.exit(1);
+});
+
 
 module.exports = Cafe;
